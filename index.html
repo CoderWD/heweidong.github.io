@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-WDKit" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/04/WDKit/" class="article-date">
+  <time datetime="2018-12-04T07:26:00.000Z" itemprop="datePublished">2018-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS工具集/">iOS工具集</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/04/WDKit/">WDKit 便捷开发工具集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="WDKit-使用说明"><a href="#WDKit-使用说明" class="headerlink" title="WDKit 使用说明"></a>WDKit 使用说明</h4><h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>本仓库由CoderHe开发和维护，主要致力于iOS开发过程中的效率问题，其中主要对UIKit使用Category和Extension的二次封及一些常用的工具类函数的封装，如果阁下有更好的思想或者想法欢迎联系我，email：<a href="mailto:heweidong@outlook.com" target="_blank" rel="noopener">heweidong@outlook.com</a>。  </p>
+<p>#####1、开始使用（Getting started）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">使用CocoaPods导入WDKit</span><br><span class="line">pod &apos;WDKit&apos;, &apos;~&gt; 1.0.4.4&apos;</span><br><span class="line">导入WDKit头文件</span><br><span class="line">#import &lt;WDKit/WDKit.h&gt;</span><br><span class="line"></span><br><span class="line">//-----------------示例-----------------</span><br><span class="line">//设置view高度</span><br><span class="line">[view setHeight:100];</span><br><span class="line">//设置view的背景颜色</span><br><span class="line">[view setBackgroundColor:RGB(100,100,100)];</span><br><span class="line">//获取view所在viewController</span><br><span class="line">UIViewController *viewController = view.viewController;</span><br><span class="line">//给模型类归档</span><br><span class="line">WDArchive(modle,fileName);</span><br><span class="line">//获取计算label的文字高度</span><br><span class="line">label.textHeight;</span><br><span class="line">//string的base64编码</span><br><span class="line">string.base64Encoding</span><br><span class="line">//...... 更多如下说明</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><a href="#Category-UIView">Category【UIView】</a></li>
+<li><a href="#Category-UILabel">Category【UILabel】</a>  </li>
+<li><a href="#Category-UIButton">Category【UIButton】</a>  </li>
+<li><a href="#Category-UIImage">Category【UIImage】</a>  </li>
+<li><a href="#Category-NSString">Category【NSString】</a>   </li>
+<li><a href="#Category-NSData">Category【NSData】</a>  </li>
+<li><a href="#Category-NSObject">Category【NSObject】</a>  </li>
+<li><a href="#Extension-UIColor">Extension【UIColor】</a>  </li>
+<li><a href="#Utils-KeyChain">Utils篇【KeyChain】</a>  </li>
+<li><a href="#Utils-RSA">Utils篇【RSA】</a>  </li>
+<li><a href="#Utils-common">通用工具类</a>  </li>
+<li><a href="#Convenient-Default">便捷宏定义</a>  </li>
+</ul>
+<p>#####2、Category篇  </p>
+<p>######<a id="Category-UIView">2.1 UIView </a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  通过响应者链找到view的viewController</span><br><span class="line"> *</span><br><span class="line"> *  @return &lt;#return value description#&gt;</span><br><span class="line"> */</span><br><span class="line">-(UIViewController *)viewController;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> view截图</span><br><span class="line"> </span><br><span class="line"> @return &lt;#return value description#&gt;</span><br><span class="line"> */</span><br><span class="line">- (UIImage *)convertToScreenScaleImage;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> view截图</span><br><span class="line"> </span><br><span class="line"> @return &lt;#return value description#&gt;</span><br><span class="line"> */</span><br><span class="line">- (UIImage *)convertToImageWithScale:(CGFloat)scale;</span><br><span class="line">/**</span><br><span class="line"> 设置边框</span><br><span class="line"></span><br><span class="line"> @param width 宽度</span><br><span class="line"> @param color 颜色</span><br><span class="line"> */</span><br><span class="line">- (void)setBorderWidth:(CGFloat)width color:(UIColor *)color;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 设置圆角</span><br><span class="line"></span><br><span class="line"> @param cornerRadius 度数</span><br><span class="line"> */</span><br><span class="line">- (void)setCornerRadius:(CGFloat)cornerRadius;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 视图坐标</span><br><span class="line"> */</span><br><span class="line">@property CGPoint origin;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 视图大小</span><br><span class="line"> */</span><br><span class="line">@property CGSize size;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> y坐标</span><br><span class="line"> */</span><br><span class="line">@property (nonatomic) CGFloat left;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> x坐标</span><br><span class="line"> */</span><br><span class="line">@property (nonatomic) CGFloat top;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 宽度</span><br><span class="line"> */</span><br><span class="line">@property CGFloat width;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 高度</span><br><span class="line"> */</span><br><span class="line">@property CGFloat height;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 右边x坐标</span><br><span class="line"> */</span><br><span class="line">@property CGFloat right;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 底部y坐标</span><br><span class="line"> */</span><br><span class="line">@property CGFloat bottom;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 中心x坐标</span><br><span class="line"> */</span><br><span class="line">@property (nonatomic) CGFloat centerX;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> 中心y坐标</span><br><span class="line"> */</span><br><span class="line">@property (nonatomic) CGFloat centerY;</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line">######&lt;a id =&quot;Category-UILabel&quot;&gt;2.2 UILabel  &lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<p>/**<br> 固定宽度计算文字高度</p>
+<p> @return &lt;#return value description#&gt;<br> */<br>-(CGFloat)textHeight;</p>
+<p>/**<br> 固定高度计算文字宽度</p>
+<p> @return &lt;#return value description#&gt;<br> */<br>-(CGFloat)textWidth;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">######&lt;a id=&quot;Category-UIButton&quot;&gt;2.3 UIButton&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<p>/*<em><br> 设置Normal下的背景图片<br> @param image 图片
+ </em>/<br>-(void)setNormalBackgroundImage:(UIImage*)image;</p>
+<p>/*<em><br> 设置hlighted]下的背景图片<br> @param image 图片
+ </em>/<br>-(void)setHighlightedBackgroundImage:(UIImage*)image;</p>
+<p>/*<em><br> 设置Selected下的背景图片<br> @param image 图片
+ </em>/<br>-(void)setSelectedBackgroundImage:(UIImage*)image;</p>
+<p>/*<em><br> 设置Normal下的背景图片<br> @param name 图片名
+ </em>/<br>-(void)setNormalBackgroundImageName:(NSString*)name;</p>
+<p>/*<em><br> 设置Highlighted下的背景图片<br> @param name 图片名
+ </em>/<br>-(void)setHighlightedBackgroundImageName:(NSString*)name;</p>
+<p>/*<em><br> 设置Selected下的背景图片<br> @param name 图片名
+ </em>/<br>-(void)setSelectedBackgroundImageName:(NSString*)name;</p>
+<p>/**<br> 设置Normal下的Title</p>
+<p> @param title &lt;#title description#&gt;<br> <em>/<br>-(void)setNormalTitle:(NSString</em>)title;</p>
+<p>/**<br> 设置Highlighted下的Title</p>
+<p> @param title &lt;#title description#&gt;<br> <em>/<br>-(void)setHighlightedTitle:(NSString</em>)title;</p>
+<p>/**<br> 设置Selected下的Title</p>
+<p> @param title &lt;#title description#&gt;<br> <em>/<br>-(void)setSelectedTitle:(NSString</em>)title;</p>
+<p>/**<br> 设置Normal下的Title Color</p>
+<p> @param color &lt;#color description#&gt;<br> <em>/<br>-(void)setNormalTitleColor:(UIColor </em>)color;</p>
+<p>/**<br> 设置Highlighted下的Title Color</p>
+<p> @param color &lt;#color description#&gt;<br> <em>/<br>-(void)setHighlightedTitleColor:(UIColor </em>)color;</p>
+<p>/**<br> 创建便捷的通用点击事件</p>
+<p> @param controlEvent button事件<br> @param handler 回调block<br> */<br>-(void)handlerControlEvent:(UIControlEvents)controlEvent handler:(void (^)(id sender))handler;</p>
+<p>/**<br> 创建最常用的TouchUpInside点击</p>
+<p> @param handler 回调block<br> */<br>-(void)handlerTouchUpInsideEvent:(void (^)(id sender))handler;</p>
+<p>/**<br> 移除target</p>
+<p> @param event &lt;#event description#&gt;<br> */<br>-(void)removeTargetWithEvent:(UIControlEvents)event;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">######&lt;a id =&quot;Category-UIImage&quot;&gt;2.4 UIImage&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<p>/**</p>
+<ul>
+<li>传入图片放缓一个像素大小的UIImage图片<br>*</li>
+<li>@param color &lt;#color description#&gt;<br>*</li>
+<li>@return &lt;#return value description#&gt;<br><em>/<br>+(UIImage</em>)imageWithColor:(UIColor*)color;</li>
+</ul>
+<p>/**<br> 压缩图片至目标尺寸</p>
+<p> @param sourceImage sourceImage 源图片<br> @param targetWidt 图片最终尺寸的宽<br> @return 返回按照源图片的宽、高比例压缩至目标宽、高的图片<br> <em>/<br>+(UIImage </em>)compressImage:(UIImage *)sourceImage toTargetWidth:(CGFloat)targetWidt;</p>
+<p>/**<br> 生成高斯模糊UIImage</p>
+<p> @param image 原始图片<br> @param blur 0.0~1.0f强度<br> @return &lt;#return value description#&gt;<br> <em>/<br>+(UIImage </em>)blurImage:(UIImage *)image withBlur:(CGFloat)blur;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">######&lt;a id=&quot;Category-NSString&quot;&gt;2.6 NSString&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<p>/**</p>
+<ul>
+<li>判断身份证号码是否正确<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<br>-(BOOL)validateIDCardNumber;<br>/**</li>
+<li>判断是否为手机号码<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<br>-(BOOL)validatePhoneNumber;<br>/**</li>
+<li>简单的11位手机号码校验<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<br>-(BOOL)simpleValidatePhone;<br>/**</li>
+<li>判断是否为身份证<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<br>-(BOOL) validateIdentityCard;<br>/**</li>
+<li>判断是否为车牌号<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<br>-(BOOL) validateCarNo;<br>/**</li>
+<li>判断是否为邮箱<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<br>-(BOOL) validateEmail;<br>/**</li>
+<li>字符串去首位空格<br>*</li>
+<li>@return &lt;#return value description#&gt;<br><em>/<br>-(NSString</em>)trim;<br>/**</li>
+<li>SHA1加密<br>*</li>
+<li>@return &lt;#return value description#&gt;<br><em>/<br>-(NSString</em>)sha1;</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>url编码<br>*</li>
+<li>@return &lt;#return value description#&gt;<br><em>/<br>-(NSString</em>)urlEncode;<br>/**</li>
+<li>url解码<br>*</li>
+<li>@return &lt;#return value description#&gt;<br><em>/<br>-(NSString</em>)urlDecode;<br>/**</li>
+<li>md5<br>*</li>
+<li>@return &lt;#return value description#&gt;<br><em>/<br>-(NSString</em>)md5;</li>
+</ul>
+<p>/**<br> DES+Base64加密</p>
+<p> @param key &lt;#key description#&gt;<br> @return &lt;#return value description#&gt;<br> */</p>
+<ul>
+<li>(NSString <em>)desEncryptWithKey:(NSString</em>)key;</li>
+</ul>
+<p>/**<br> DES+Base64解密</p>
+<p> @param key &lt;#key description#&gt;<br> @return &lt;#return value description#&gt;<br> */</p>
+<ul>
+<li>(NSString <em>)desDecryptWithKey:(NSString</em>)key;</li>
+</ul>
+<p>/**<br> AES加密</p>
+<p> @param key &lt;#key description#&gt;<br> @return &lt;#return value description#&gt;<br> */</p>
+<ul>
+<li>(NSString <em>)aesEncryptWitKey:(NSString</em>)key;</li>
+</ul>
+<p>/**<br> AES解密</p>
+<p> @param key &lt;#key description#&gt;<br> @return &lt;#return value description#&gt;<br> */</p>
+<ul>
+<li>(NSString <em>)aesDecryptWitKey:(NSString</em>)key;</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>base64编码<br>*</li>
+<li>@return &lt;#return value description#&gt;<br><em>/<br>-(NSString</em>)base64Encoding;<br>/**</li>
+<li>base64解码<br>*</li>
+<li>@return &lt;#return value description#&gt;<br><em>/<br>-(NSString</em>)base64Decodeing;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">######&lt;a id=&quot;Category-NSData&quot;&gt;2.5 NSData&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>aes265加密<br>*</li>
+<li>@param key &lt;#key description#&gt;<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<ul>
+<li>(NSData <em>)aes256_encrypt:(NSString </em>)key;</li>
+</ul>
+</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>aes265 解密<br>*</li>
+<li>@param key &lt;#key description#&gt;<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<ul>
+<li>(NSData <em>)aes256_decrypt:(NSString </em>)key;</li>
+</ul>
+</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>des加密<br>*</li>
+<li>@param key &lt;#key description#&gt;<br>*</li>
+<li>@return &lt;#return value description#&gt;<br><em>/<br>-(NSData</em>)desEncryptWithKey:(NSString*)key;</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>des解密<br>*</li>
+<li>@param key &lt;#key description#&gt;<br>*</li>
+<li>@return &lt;#return value description#&gt;<br><em>/<br>-(NSData</em>)desDecrypttWithKey:(NSString*)key;</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>转16进制字符串<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<ul>
+<li>(NSString*)encryptHex;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">######&lt;a id=&quot;Category-NSObject&quot;&gt;2.7 NSObject&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>/*<em><br> runtime 扩展属性
+ </em>/<br>@property (nonatomic,strong) NSMutableDictionary *extentObject;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#####3、Extension偏  </span><br><span class="line">######&lt;a id=&quot;Extension-UIColor&quot;&gt;3.1 UIColor&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<p>/**</p>
+<ul>
+<li>16进制颜色转RGB<br>*</li>
+<li>@param hexValue   色值</li>
+<li>@param alphaValue 透明度<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<ul>
+<li>(UIColor*) colorWithHex:(NSInteger)hexValue alpha:(CGFloat)alphaValue;</li>
+</ul>
+</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>16进制颜色转RGB<br>*</li>
+<li>@param hexValue 色值<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<ul>
+<li>(UIColor*) colorWithHex:(NSInteger)hexValue;</li>
+</ul>
+</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>RGB转16进制颜色<br>*</li>
+<li>@param color RGB颜色<br>*</li>
+<li>@return 16进制颜色字符串<br>*/<ul>
+<li>(NSString <em>) hexFromUIColor: (UIColor</em>) color;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#####4、Utils篇</span><br><span class="line">######&lt;a id=&quot;Utils-KeyChain&quot;&gt;4.1 钥匙串（KeyChain）&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>#import “WDKeyChain.h”</p>
+<p>/**<br> &lt;#Description#&gt;</p>
+<p> @param key 保存东西到钥匙串<br> @param data &lt;#data description#&gt;<br> */</p>
+<ul>
+<li>(void)saveWithKey:(NSString *)key data:(id)data;</li>
+</ul>
+<p>/**<br> 加载钥匙串里的内容</p>
+<p> @param key &lt;#key description#&gt;<br> @return &lt;#return value description#&gt;<br> */</p>
+<ul>
+<li>(id)loadWithKey:(NSString *)key;</li>
+</ul>
+<p>/**<br>  删除钥匙串内容</p>
+<p> @param key &lt;#key description#&gt;<br> */</p>
+<ul>
+<li>(void)deleteWithKey:(NSString *)key;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">######&lt;a id=&quot;Utils-RSA&quot;&gt;4.2 RSA加密解密&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>#import “WDRSA.h”</p>
+<p>// return base64 encoded string</p>
+<ul>
+<li>(NSString <em>)encryptString:(NSString </em>)str publicKey:(NSString *)pubKey;<br>// return raw data</li>
+<li>(NSData <em>)encryptData:(NSData </em>)data publicKey:(NSString <em>)pubKey;<br>// return base64 encoded string<br>// enc with private key NOT working YET!<br>//+ (NSString </em>)encryptString:(NSString <em>)str privateKey:(NSString </em>)privKey;<br>// return raw data<br>//+ (NSData <em>)encryptData:(NSData </em>)data privateKey:(NSString *)privKey;</li>
+</ul>
+<p>// decrypt base64 encoded string, convert result to string(not base64 encoded)</p>
+<p>/**</p>
+<ul>
+<li>公钥解密 String<br>*</li>
+<li>@param str    待解密字符串</li>
+<li>@param pubKey 公钥<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<ul>
+<li>(NSString <em>)decryptString:(NSString </em>)str publicKey:(NSString *)pubKey;<br>/**</li>
+</ul>
+</li>
+<li>公钥解密NSData<br>*</li>
+<li>@param data   待解密Data</li>
+<li>@param pubKey 公钥<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<ul>
+<li>(NSData <em>)decryptData:(NSData </em>)data publicKey:(NSString *)pubKey;<br>/**</li>
+</ul>
+</li>
+<li>私钥解密 String<br>*</li>
+<li>@param str     待解密字符串</li>
+<li>@param privKey 私钥<br>*</li>
+<li>@return &lt;#return value description#&gt;<br>*/<ul>
+<li>(NSString <em>)decryptString:(NSString </em>)str privateKey:(NSString *)privKey;</li>
+</ul>
+</li>
+</ul>
+<p>/**<br> 私钥解密 NSData</p>
+<p> @param data 待解密Data<br> @param privKey 私钥<br> @return &lt;#return value description#&gt;<br> */</p>
+<ul>
+<li>(NSData <em>)decryptData:(NSData </em>)data privateKey:(NSString *)privKey;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">######&lt;a id=&quot;Utils-common&quot;&gt;4.3 通用工具类&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>#import “WDUtils.h”<br>/**<br> 计算文字宽度</p>
+<p> @param text &lt;#text description#&gt;<br> @param font &lt;#font description#&gt;<br> @param height &lt;#height description#&gt;<br> @return &lt;#return value description#&gt;<br> <em>/<br>+(CGFloat)textWidth:(NSString</em>)text font:(UIFont*)font height:(CGFloat)height;</p>
+<p>/**<br> 计算文字高度</p>
+<p> @param text &lt;#text description#&gt;<br> @param font &lt;#font description#&gt;<br> @param width &lt;#width description#&gt;<br> @return &lt;#return value description#&gt;<br> <em>/<br>+(CGFloat)textHeight:(NSString</em>)text font:(UIFont*)font width:(CGFloat)width;</p>
+<p>/**<br> 归档</p>
+<p> @param object &lt;#object description#&gt;<br> @param name &lt;#fileName description#&gt;<br> @return &lt;#return value description#&gt;<br> <em>/<br>+(BOOL)wd_archiveWithObject:(id)object fileName:(NSString</em>)name;</p>
+<p>/**<br> 解档</p>
+<p> @param name &lt;#name description#&gt;<br> @return &lt;#return value description#&gt;<br> <em>/<br>+(id)wd_unArchiveWithFileName:(NSString</em>)name;</p>
+<p>/**<br> 删除归档文件</p>
+<p> @param name &lt;#name description#&gt;<br> @return &lt;#return value description#&gt;<br> <em>/<br>+(BOOL)wd_deleteArchiveWithFileName:(NSString</em>)name;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#####&lt;a id=&quot;Convenient-Default&quot;&gt;4、便捷宏定义&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<p>// 颜色RBG</p>
+<p>#define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]<br>//颜色RBGA</p>
+<p>#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]</p>
+<p>//便捷创建字体字体</p>
+<p>#define WDSystemFont(size) [UIFont systemFontOfSize:size]<br>//便捷创建系统粗字体</p>
+<p>#define WDBoldSystemFont(size) [UIFont boldSystemFontOfSize:size]</p>
+<p>//3.5寸屏</p>
+<p>#define is3_5inch ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)<br>//3.5寸retina屏</p>
+<p>#define is4inch_retina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)<br>//4.7寸retina屏</p>
+<p>#define is4_7inch_retina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)<br>//5.寸retina屏</p>
+<p>#define is5_5inch_retina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)</p>
+<p>//app框架高度</p>
+<p>#define APP_FRAME_HEIGHT [[UIScreen mainScreen] applicationFrame].size.height<br>//app框架宽度</p>
+<p>#define APP_FRAME_WIDTH [[UIScreen mainScreen] applicationFrame].size.width<br>//屏幕的尺寸</p>
+<p>#define SCREEN_SIZE ([[UIScreen mainScreen] bounds]).size<br>//屏幕高度</p>
+<p>#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds]).size.height<br>//屏幕宽度</p>
+<p>#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds]).size.width</p>
+<p>//沙盒目录</p>
+<p>#define DOCUMENT_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]<br>//应用keyWindow</p>
+<p>#define KEY_WINDOW [UIApplication sharedApplication].keyWindow</p>
+<p>// 调试</p>
+<p>#ifdef DEBUG</p>
+<pre><code>#define DLog(fmt, ...) NSLog((@&quot;%s [Line %d] &quot; fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+</code></pre><p>#else</p>
+<pre><code>#define DLog(...)
+</code></pre><p>#endif</p>
+<p>//文件根目录归档</p>
+<p>#define WDArchive(object,name) [WDUtils wd_archiveWithObject:object fileName:name]<br>//文件根目录解档</p>
+<p>#define WDUnArchive(name) [WDUtils wd_unArchiveWithFileName:name]<br>//删除根目录下的文件</p>
+<p>#define WDDeleteArchiveFile(name) [WDUtils wd_deleteArchiveWithFileName:name]</p>
+<p>//便捷创建UIImage</p>
+<p>#define WDNameImage(name) [UIImage imageNamed:name]<br><code>`</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/04/WDKit/" data-id="cjp9f6wod0000fttlfed60h7e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/04/hello-world/" class="article-date">
+  <time datetime="2018-12-04T07:16:00.000Z" itemprop="datePublished">2018-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/04/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/04/hello-world/" data-id="cjp9df8jh00011ftlwvspzbpg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS工具集/">iOS工具集</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/04/WDKit/">WDKit 便捷开发工具集</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
